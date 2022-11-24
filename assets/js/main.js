@@ -8,6 +8,9 @@ $(document).ready(function() {
         direction: 'horizontal',
         sectionsColor: ['#ffffff', '#ffffff', '#ffffff'],
         verticalCentered: false,
-        navigation: false
+        navigation: false,
+        anchors: ['section1', 'section2', 'section3'],
+        keyboardScrolling: false,
     });
+    $.fn.pagepiling.setAllowScrolling(false)
 })
