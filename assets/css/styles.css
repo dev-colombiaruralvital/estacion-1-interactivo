@@ -67,10 +67,20 @@ h1 span:nth-child(3) {
 
 h2 {
   position: relative;
+}
+h2.blue {
+  color: #0c86e9;
+}
+h2.blue::after {
+  background: #0c86e9;
+}
+h2.green {
   color: #1a5957;
 }
-h2::after {
+h2.green::after {
   background: #56ad7a;
+}
+h2::after {
   bottom: 5px;
   content: "";
   height: 1px;
@@ -177,8 +187,105 @@ p.bordered {
 .arrow {
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 2rem;
   transform: translateY(-50%);
+}
+
+.hoverable {
+  cursor: pointer;
+  fill: #56ad7a;
+}
+.hoverable:hover {
+  fill: #0c86e9;
+}
+
+.blue {
+  fill: #0c86e9;
+}
+
+#mapa svg {
+  height: 100%;
+}
+
+#section2 img {
+  z-index: 0;
+}
+#section2 .z-1 {
+  z-index: 1;
+}
+
+.locations {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  z-index: 10;
+  gap: 3rem 1rem;
+}
+.locations .location {
+  gap: 0.2rem;
+  opacity: 0;
+}
+.locations .location.blue .location-header {
+  background-color: #0c86e9;
+}
+.locations .location.blue .location-content {
+  background-color: rgba(77, 131, 227, 0.05);
+  border-bottom: 1px solid #4d83e3;
+}
+.locations .location-header {
+  background-color: #56ad7a;
+  color: #ffffff;
+  padding: 1rem 0.5rem;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+.locations .location-content {
+  padding: 1rem 0.4rem;
+  background-color: rgba(119, 169, 124, 0.05);
+  border-bottom: 1px solid #77a97c;
+  color: #797979;
+}
+
+.content-boxes {
+  display: grid;
+  gap: 5rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.content-box-header {
+  background-color: #56ad7a;
+  clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
+  color: #ffffff;
+  cursor: pointer;
+  padding: 0.7rem 0;
+  position: relative;
+}
+.content-box-header h3 {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+.content-box-header .number {
+  font-weight: 600;
+  position: absolute;
+  right: 15%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2em;
+}
+.content-box-header img {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 75%;
+}
+.content-box-content {
+  color: #797979;
+  font-size: 0.9em;
+  font-weight: 300;
+  line-height: 1;
+  opacity: 0;
+  padding: 1.5rem 3rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
