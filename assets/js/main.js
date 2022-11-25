@@ -13,7 +13,7 @@ $(document).ready(function() {
         keyboardScrolling: false,
     });
     $.fn.pagepiling.setAllowScrolling(false)
-    $('#mapa').load('../assets/img/mapa.svg')
+    $('#mapa').load('./assets/img/mapa.svg')
     $('.hoverable').hover(function() {
         console.log("Foasd")
     })
