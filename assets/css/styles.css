@@ -332,6 +332,23 @@ p.bordered {
   grid-template-columns: repeat(3, 1fr);
 }
 
+@media (max-width: 1100px) {
+  .locations {
+    gap: 1rem;
+  }
+  .location-header h6 {
+    font-size: 0.9rem;
+  }
+  .location-content {
+    font-size: 0.8rem;
+  }
+  .instruction {
+    font-size: 0.8rem !important;
+  }
+  .timeline-item .instruction {
+    width: 70%;
+  }
+}
 .content-box {
   position: relative;
 }
