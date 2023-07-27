@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "mundial";
   src: url("../fonts/mundialbold-webfont.woff2") format("woff2"), url("../fonts/mundialbold-webfont.woff") format("woff");
@@ -112,7 +113,7 @@ p.bordered {
   height: 150px;
   top: -150px;
 }
-.timeline div {
+.timeline .openBox {
   width: 100%;
   cursor: pointer;
   background-color: rgba(12, 134, 233, 0.2);
@@ -120,10 +121,10 @@ p.bordered {
   padding-top: 4px;
   position: relative;
 }
-.timeline div:last-child {
+.timeline .openBox.last {
   clip-path: polygon(95% 0, 100% 50%, 95% 100%, 0% 100%, 0 45%, 0% 0%);
 }
-.timeline div::after {
+.timeline .openBox::after {
   content: "";
   background-color: rgba(12, 134, 233, 0.4);
   clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0% 100%, 50% 50%, 0% 0%);
@@ -133,12 +134,41 @@ p.bordered {
   right: 0;
   top: 0;
 }
-.timeline div h3 {
+.timeline .openBox h3 {
   margin-bottom: 0;
   color: #ffffff;
 }
-.timeline div h3 span {
+.timeline .openBox h3 span {
   color: #0c86e9;
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-item .instruction {
+  position: absolute;
+  left: 47%;
+  transform: translateX(-50%);
+  bottom: -100%;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 300;
+  background-color: #1a5957;
+  color: #fff;
+  width: 50%;
+  border-radius: 5px;
+  padding: 0.2rem 0.8rem;
+  z-index: 1;
+}
+.timeline-item .instruction::before {
+  content: "";
+  width: 10px;
+  height: 15px;
+  background-color: #1a5957;
+  top: -5px;
+  left: 50%;
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: -1;
 }
 
 .boxes {
@@ -183,12 +213,39 @@ p.bordered {
   font-size: 0.75rem;
   margin-bottom: 0.5rem;
 }
+.boxes .box ul {
+  padding-left: 1rem;
+  margin-bottom: 0;
+}
+.boxes .box ul li {
+  font-size: 0.75rem;
+  color: #7a7a7a;
+  line-height: 1.1;
+}
 
 .arrow {
   position: absolute;
   top: 50%;
-  right: 2rem;
   transform: translateY(-50%);
+}
+.arrow.prev {
+  left: 2rem;
+}
+.arrow.prev img {
+  transform: rotate(180deg);
+}
+.arrow.next {
+  right: 2rem;
+}
+.arrow:after {
+  content: "Dar clic aquí";
+  position: absolute;
+  font-weight: 600;
+  line-height: 1;
+  color: #1a5957;
+  text-align: center;
+  left: 0;
+  top: 110%;
 }
 
 .hoverable {
@@ -203,15 +260,38 @@ p.bordered {
   fill: #0c86e9;
 }
 
+#mapa {
+  position: relative;
+}
 #mapa svg {
   height: 100%;
 }
+#mapa::before {
+  content: "Haga clic o pase el cursor sobre cada una de las zonas del mapa, para ver más información";
+  position: absolute;
+  text-align: center;
+  border-radius: 5px;
+  line-height: 1;
+  font-size: 0.9rem;
+  padding: 5px;
+  color: #fff;
+  top: -12%;
+  width: 100%;
+  background-color: #1a5957;
+}
 
+#section2 {
+  padding: 5rem;
+}
 #section2 img {
   z-index: 0;
 }
 #section2 .z-1 {
   z-index: 1;
+}
+
+#section3 .container-fluid {
+  padding: 3rem 6rem;
 }
 
 .locations {
@@ -229,7 +309,7 @@ p.bordered {
   background-color: #0c86e9;
 }
 .locations .location.blue .location-content {
-  background-color: rgba(77, 131, 227, 0.05);
+  background-color: rgba(77, 131, 227, 0.2);
   border-bottom: 1px solid #4d83e3;
 }
 .locations .location-header {
@@ -241,7 +321,7 @@ p.bordered {
 }
 .locations .location-content {
   padding: 1rem 0.4rem;
-  background-color: rgba(119, 169, 124, 0.05);
+  background-color: rgba(119, 169, 124, 0.2);
   border-bottom: 1px solid #77a97c;
   color: #797979;
 }
@@ -252,6 +332,9 @@ p.bordered {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.content-box {
+  position: relative;
+}
 .content-box-header {
   background-color: #56ad7a;
   clip-path: polygon(0% 0%, 95% 0%, 100% 50%, 95% 100%, 0% 100%);
@@ -285,7 +368,46 @@ p.bordered {
   font-weight: 300;
   line-height: 1;
   opacity: 0;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
+}
+.content-box .instruction {
+  position: absolute;
+  top: 22%;
+  background-color: #1a5957;
+  padding: 5px 20px;
+  border-radius: 4px;
+  color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.content-box .instruction::before {
+  content: "";
+  width: 10px;
+  height: 15px;
+  background-color: #1a5957;
+  top: -5px;
+  left: 50%;
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: -1;
+}
+
+.indicacion {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  line-height: 1;
+  max-width: 20%;
+  font-weight: 600;
+  text-align: center;
+  background-color: rgb(247, 90, 90);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+}
+
+.section-footer {
+  margin-bottom: -1px;
 }
 
 /*# sourceMappingURL=styles.css.map */

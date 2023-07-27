@@ -1,8 +1,9 @@
 $(document).ready(function() {
     $('.openBox').on('click', function() {
-        let elem = $(this).data('target')
-        $(`.title-${elem}`).removeClass('animate__animated')
-        $(`#${elem}`).addClass('show')
+        let elem = $(this).data('target');
+        $(`.title-${elem}`).removeClass('animate__animated');
+        $(`.instruction.${elem}`).fadeOut()
+        $(`#${elem}`).addClass('show');
     })
     $('#pagepiling').pagepiling({
         direction: 'horizontal',
@@ -20,6 +21,7 @@ $(document).ready(function() {
     $('.content-box-header').on('click', function() {
         $(this).removeClass('animate__pulse')
         const content = $(this).data('content');
+        $(`.instruction.${content}`).fadeOut()
         $(`#${content}`).css('opacity', '1').addClass('animate__fadeInDown')
     })
 })
