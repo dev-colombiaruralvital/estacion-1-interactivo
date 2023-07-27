@@ -408,6 +408,10 @@ p.bordered {
 
 .section-footer {
   margin-bottom: -1px;
+  max-width: 100%;
+}
+.section-footer img {
+  width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
