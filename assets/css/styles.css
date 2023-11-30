@@ -332,6 +332,10 @@ p.bordered {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.title h1 {
+  color: #56ad7a;
+}
+
 @media (max-width: 1100px) {
   .locations {
     gap: 1rem;
